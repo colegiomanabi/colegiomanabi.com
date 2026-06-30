@@ -1,0 +1,192 @@
+---
+import "../styles/global.css";
+
+const { title = "Colegio Manabí — Educación con Propósito", description = "Educación con propósito para niños que cambiarán el mundo. Formamos niñas y niños con liderazgo, empatía y responsabilidad en Ensenada, B.C." } = Astro.props;
+
+const nav = [
+  { href: "#nosotros", label: "Nosotros" },
+  { href: "#niveles", label: "Niveles" },
+  { href: "#oferta", label: "Oferta Académica" },
+  { href: "#comunidad", label: "Comunidad" },
+  { href: "#admisiones", label: "Admisiones" },
+  { href: "#contacto", label: "Contacto" },
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/logos/logo-manabi-regular.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Nunito+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-white text-slate-700 antialiased">
+    <header
+      id="site-header"
+      class="fixed inset-x-0 top-0 z-50 transition-all duration-300 bg-brand-blue/95 backdrop-blur-md border-b border-white/10"
+    >
+      <div id="top-bar" class="max-h-12 overflow-hidden bg-brand-teal transition-all duration-300">
+        <div class="mx-auto flex max-w-7xl items-center justify-end gap-6 px-5 py-2 text-sm text-white lg:px-8">
+          <a href="https://wa.me/16462582275" class="flex items-center gap-1.5 transition-colors hover:text-yellow-300">
+            <svg class="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.515 5.26l-.999 3.648 3.873-1.015zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>(646) 258-2275</span>
+          </a>
+          <a href="mailto:info@colegiomanabi.com" class="hidden items-center gap-1.5 transition-colors hover:text-yellow-300 sm:flex">
+            <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+            <span>info@colegiomanabi.com</span>
+          </a>
+        </div>
+      </div>
+
+      <nav id="site-nav" class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 transition-all duration-300 lg:px-8">
+        <a href="#inicio" class="flex items-center" aria-label="Colegio Manabí — inicio">
+          <img id="site-logo" src="/logos/logo-manabi-light.svg" alt="Colegio Manabí" class="h-16 w-auto transition-all duration-300" />
+        </a>
+
+        <div class="hidden items-center gap-7 lg:flex">
+          {nav.map((i) => (
+            <a href={i.href} class="text-sm font-semibold text-white/80 transition-colors hover:text-white">
+              {i.label}
+            </a>
+          ))}
+          <a
+            href="#contacto"
+            class="rounded-full bg-brand-gold px-5 py-2.5 text-sm font-bold text-brand-blue shadow-sm transition-all hover:brightness-105 hover:shadow-md"
+          >
+            Agenda una Visita
+          </a>
+        </div>
+
+        <button
+          id="menu-btn"
+          class="lg:hidden p-2 text-white"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+        >
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+          </svg>
+        </button>
+      </nav>
+
+      <div id="mobile-menu" class="hidden border-t border-white/10 bg-brand-blue px-5 py-4 lg:hidden">
+        <div class="flex flex-col gap-1">
+          {nav.map((i) => (
+            <a href={i.href} class="rounded-lg px-3 py-2.5 text-sm font-semibold text-white/90 hover:bg-white/10">
+              {i.label}
+            </a>
+          ))}
+          <a href="#contacto" class="mt-2 rounded-full bg-brand-gold px-5 py-3 text-center text-sm font-bold text-brand-blue">
+            Agenda una Visita
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="relative overflow-hidden bg-brand-blue text-white">
+      <div class="h-1 w-full bg-brand-gold"></div>
+      <img src="/logos/isotype-light.svg" alt="" aria-hidden="true" class="pointer-events-none absolute -bottom-24 -right-16 hidden h-[26rem] w-auto opacity-[0.04] lg:block" />
+
+      <div class="relative mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:grid-cols-2 lg:grid-cols-5 lg:px-8">
+        <div class="sm:col-span-2">
+          <img src="/logos/logo-manabi-light.svg" alt="Colegio Manabí" class="h-14 w-auto" />
+          <p class="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
+            Educación con propósito para niños que cambiarán el mundo. Formamos líderes con empatía y responsabilidad.
+          </p>
+          <p class="mt-6 text-xs uppercase tracking-widest text-white/40">Síguenos en redes sociales</p>
+          <div class="mt-3 flex gap-3">
+            <a href="https://wa.me/16462582275" aria-label="WhatsApp" class="rounded-full bg-white/10 p-2.5 transition-colors hover:bg-white/20">
+              <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.515 5.26l-.999 3.648 3.873-1.015zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            </a>
+            <a href="mailto:info@colegiomanabi.com" aria-label="Correo" class="rounded-full bg-white/10 p-2.5 transition-colors hover:bg-white/20">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 0 0 2.22 0L21 8M5 19h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wide">Niveles</h3>
+          <ul class="mt-4 space-y-2.5">
+            <li><a href="#niveles" class="text-sm text-white/60 transition-colors hover:text-white">Preescolar (3–6 años)</a></li>
+            <li><a href="#niveles" class="text-sm text-white/60 transition-colors hover:text-white">Primaria (6–12 años)</a></li>
+            <li><a href="#admisiones" class="text-sm text-white/60 transition-colors hover:text-white">Proceso de admisión</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wide">Enlaces</h3>
+          <ul class="mt-4 space-y-2.5">
+            <li><a href="#nosotros" class="text-sm text-white/60 transition-colors hover:text-white">Nosotros</a></li>
+            <li><a href="#oferta" class="text-sm text-white/60 transition-colors hover:text-white">Oferta Académica</a></li>
+            <li><a href="#comunidad" class="text-sm text-white/60 transition-colors hover:text-white">Comunidad</a></li>
+            <li><a href="#contacto" class="text-sm text-white/60 transition-colors hover:text-white">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-sm font-bold uppercase tracking-wide">Contacto</h3>
+          <ul class="mt-4 space-y-2.5 text-sm text-white/60">
+            <li><a href="tel:6462582275" class="transition-colors hover:text-white">(646) 258-2275</a></li>
+            <li><a href="mailto:info@colegiomanabi.com" class="transition-colors hover:text-white">info@colegiomanabi.com</a></li>
+            <li>Paseo de las Ballenas S/N, Vista Hermosa, 22785 Ensenada, B.C.</li>
+            <li>Lun–Vie: 7:30–15:30 h</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="relative border-t border-white/10">
+        <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-5 py-5 text-xs text-white/40 sm:flex-row lg:px-8">
+          <p>© {new Date().getFullYear()} Colegio Manabí. Todos los derechos reservados.</p>
+          <div class="flex items-center gap-4">
+            <span>Educación con Propósito</span>
+            <a href="#" class="transition-colors hover:text-white">Aviso de privacidad</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.getElementById("menu-btn");
+      const menu = document.getElementById("mobile-menu");
+      btn?.addEventListener("click", () => {
+        const open = menu?.classList.toggle("hidden") === false;
+        btn.setAttribute("aria-expanded", String(open));
+      });
+      menu?.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => menu.classList.add("hidden"))
+      );
+      const header = document.getElementById("site-header");
+      const topbar = document.getElementById("top-bar");
+      const navEl = document.getElementById("site-nav");
+      const logo = document.getElementById("site-logo");
+      const onScroll = () => {
+        const scrolled = window.scrollY > 8;
+        header?.classList.toggle("shadow-md", scrolled);
+        topbar?.classList.toggle("max-h-0", scrolled);
+        topbar?.classList.toggle("max-h-12", !scrolled);
+        navEl?.classList.toggle("py-3", scrolled);
+        navEl?.classList.toggle("py-5", !scrolled);
+        logo?.classList.toggle("h-11", scrolled);
+        logo?.classList.toggle("h-16", !scrolled);
+      };
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+---
+const inputBase =
+  "w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800 transition-all placeholder:text-slate-400 focus:border-transparent focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue/40";
+---
+
+<form id="contact-form" class="space-y-4" novalidate>
+  <div>
+    <label for="nombre" class="mb-1.5 block text-sm font-semibold text-slate-700">Nombre completo *</label>
+    <input id="nombre" name="nombre" type="text" required autocomplete="name" placeholder="Tu nombre" class={inputBase} />
+  </div>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div>
+      <label for="email" class="mb-1.5 block text-sm font-semibold text-slate-700">Correo electrónico *</label>
+      <input id="email" name="email" type="email" required autocomplete="email" placeholder="correo@ejemplo.com" class={inputBase} />
+    </div>
+    <div>
+      <label for="telefono" class="mb-1.5 block text-sm font-semibold text-slate-700">Teléfono</label>
+      <input id="telefono" name="telefono" type="tel" autocomplete="tel" placeholder="(646) 000 0000" class={inputBase} />
+    </div>
+  </div>
+
+  <div>
+    <label for="nivel" class="mb-1.5 block text-sm font-semibold text-slate-700">Nivel de interés</label>
+    <select id="nivel" name="nivel" class={inputBase}>
+      <option value="">Selecciona un nivel</option>
+      <option>Preescolar (3–6 años)</option>
+      <option>Primaria (6–12 años)</option>
+      <option>Ambos niveles</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="mensaje" class="mb-1.5 block text-sm font-semibold text-slate-700">Mensaje</label>
+    <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje, dudas o comentarios..." class={inputBase}></textarea>
+  </div>
+
+  <!-- honeypot: bots fill it, humans never see it. ponytail: cheap spam guard, add reCAPTCHA only if abused -->
+  <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+
+  <button
+    type="submit"
+    id="submit-btn"
+    class="flex w-full items-center justify-center gap-2 rounded-xl bg-brand-blue px-6 py-4 text-sm font-bold text-white transition-all hover:brightness-110 active:scale-95 disabled:opacity-70"
+  >
+    <span id="btn-label">Envíanos un mensaje</span>
+    <svg id="btn-spinner" class="hidden h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white"></svg>
+  </button>
+
+  <p id="form-status" class="hidden rounded-xl px-4 py-3 text-sm font-medium" role="status" aria-live="polite"></p>
+
+  <p class="text-center text-xs text-slate-400">
+    Al enviar este formulario, aceptas que nos comuniquemos contigo para atender tu solicitud.
+  </p>
+</form>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const btn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const label = document.getElementById("btn-label")!;
+  const spinner = document.getElementById("btn-spinner")!;
+  const status = document.getElementById("form-status")!;
+
+  const show = (msg: string, ok: boolean) => {
+    status.textContent = msg;
+    status.className =
+      "rounded-xl px-4 py-3 text-sm font-medium " +
+      (ok ? "bg-green-50 text-green-700" : "bg-red-50 text-red-700");
+  };
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+
+    btn.disabled = true;
+    label.textContent = "Enviando...";
+    spinner.classList.remove("hidden");
+    status.classList.add("hidden");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || "Error al enviar.");
+      show("¡Gracias por tu interés en Colegio Manabí! Nos comunicaremos contigo a la brevedad.", true);
+      form.reset();
+    } catch (err) {
+      show(err instanceof Error ? err.message : "Ocurrió un error. Intenta de nuevo.", false);
+    } finally {
+      btn.disabled = false;
+      label.textContent = "Envíanos un mensaje";
+      spinner.classList.add("hidden");
+    }
+  });
+</script>
