@@ -85,7 +85,7 @@ const inputBase =
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.error || "Error al enviar.");
-      show("¡Gracias por tu interés en Colegio Manabí! Nos comunicaremos contigo a la brevedad.", true);
+      show("¡Gracias por tu interés en Colegio Manabi! Nos comunicaremos contigo a la brevedad.", true);
       form.reset();
     } catch (err) {
       show(err instanceof Error ? err.message : "Ocurrió un error. Intenta de nuevo.", false);

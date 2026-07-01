@@ -52,7 +52,7 @@ const pasos = [
   { n: "01", titulo: "Contacto Inicial", desc: "Comunícate con nosotros por teléfono, correo o el formulario de contacto para solicitar información." },
   { n: "02", titulo: "Visita al Colegio", desc: "Agenda una visita guiada para conocer nuestras instalaciones, metodología y el equipo docente." },
   { n: "03", titulo: "Entrega de Documentos", desc: "Entrega la documentación requerida para iniciar el proceso de admisión de tu hijo." },
-  { n: "04", titulo: "Inscripción", desc: "Completa el proceso de inscripción y da la bienvenida a tu hijo a la comunidad Manabí." },
+  { n: "04", titulo: "Inscripción", desc: "Completa el proceso de inscripción y da la bienvenida a tu hijo a la comunidad Manabi." },
 ];
 
 const documentos = [
@@ -68,7 +68,7 @@ const documentos = [
 <Layout>
   <!-- Hero -->
   <section id="inicio" class="relative flex min-h-screen items-center overflow-hidden bg-brand-blue text-white">
-    <img src="/manabi-hero.webp" alt="Alumnos de Colegio Manabí" class="absolute inset-0 h-full w-full object-cover object-[75%_20%]" />
+    <img src="/manabi-hero.webp" alt="Alumnos de Colegio Manabi" class="absolute inset-0 h-full w-full object-cover object-[75%_20%]" />
     <div class="absolute inset-0 bg-gradient-to-r from-brand-blue from-30% via-brand-blue/78 via-58% to-transparent"></div>
 
     <div class="relative mx-auto w-full max-w-7xl px-5 py-28 lg:px-8">
@@ -98,10 +98,10 @@ const documentos = [
         <div class="relative">
           <div class="absolute -left-4 -top-4 h-full w-full rounded-3xl border-2 border-brand-gold"></div>
           <div class="relative overflow-hidden rounded-3xl shadow-2xl">
-            <img src="/us.webp" alt="Maestra leyendo un cuento a un grupo de alumnos de Colegio Manabí" class="aspect-square h-full w-full object-cover" />
+            <img src="/us.webp" alt="Maestra leyendo un cuento a un grupo de alumnos de Colegio Manabi" class="aspect-square h-full w-full object-cover" />
             <div class="absolute inset-x-6 bottom-6 rounded-xl bg-brand-blue p-4 shadow-xl">
               <p class="font-display text-lg font-bold leading-snug text-white">«Educación con propósito para niños que cambiarán el mundo.»</p>
-              <p class="mt-1 text-sm font-medium text-brand-gold">— Colegio Manabí</p>
+              <p class="mt-1 text-sm font-medium text-brand-gold">— Colegio Manabi</p>
             </div>
           </div>
         </div>
@@ -110,7 +110,7 @@ const documentos = [
           <span class="text-sm font-bold uppercase tracking-widest text-brand-gold">Quiénes Somos</span>
           <h2 class="mt-2 font-display text-3xl font-extrabold leading-tight text-brand-blue lg:text-4xl">Una nueva forma de entender la educación</h2>
           <p class="mt-5 leading-relaxed text-slate-600">
-            Colegio Manabí nace de la convicción de que cada niño tiene un potencial único que merece ser descubierto y cultivado. Nuestro nombre proviene del japonés <em>学び (manabi)</em>, que significa aprendizaje — una filosofía que guía cada decisión pedagógica que tomamos.
+            Colegio Manabi nace de la convicción de que cada niño tiene un potencial único que merece ser descubierto y cultivado. Nuestro nombre proviene del japonés <em>学び (manabi)</em>, que significa aprendizaje — una filosofía que guía cada decisión pedagógica que tomamos.
           </p>
           <p class="mt-4 leading-relaxed text-slate-600">
             Ofrecemos educación de preescolar y primaria con grupos reducidos, maestros comprometidos y un modelo educativo centrado en el desarrollo integral: académico, emocional y humano.
@@ -145,7 +145,7 @@ const documentos = [
         {niveles.map((n, i) => (
           <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
             <div class={`overflow-hidden rounded-3xl shadow-xl ${i % 2 ? "lg:order-2" : ""}`}>
-              <img src={n.img} alt={`Alumnos de ${n.nombre} en Colegio Manabí`} class="aspect-[4/3] h-full w-full object-cover" />
+              <img src={n.img} alt={`Alumnos de ${n.nombre} en Colegio Manabi`} class="aspect-[4/3] h-full w-full object-cover" />
             </div>
 
             <div class={i % 2 ? "lg:order-1" : ""}>
@@ -210,7 +210,7 @@ const documentos = [
           <span class="text-sm font-bold uppercase tracking-widest text-brand-gold">Nuestra Comunidad</span>
           <h2 class="mt-3 font-display text-3xl font-extrabold lg:text-4xl">Espacios diseñados para inspirar</h2>
           <p class="mt-5 leading-relaxed text-white/70">
-            Cada día en Colegio Manabí es una oportunidad de aprender, crecer y construir amistades que duran toda la vida. Nuestras instalaciones están pensadas para el desarrollo integral de cada alumno.
+            Cada día en Colegio Manabi es una oportunidad de aprender, crecer y construir amistades que duran toda la vida. Nuestras instalaciones están pensadas para el desarrollo integral de cada alumno.
           </p>
         </div>
         <div class="grid gap-3 sm:grid-cols-2">
@@ -239,7 +239,7 @@ const documentos = [
         <div class="grid gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {pasos.map((p) => (
             <div class="px-4 text-center">
-              <div class="relative z-10 mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand-blue font-display text-lg font-extrabold text-white ring-8 ring-white">
+              <div class="relative z-10 mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-brand-gold font-display text-lg font-extrabold text-brand-blue ring-8 ring-white">
                 {p.n}
               </div>
               <h3 class="mt-5 font-display text-lg font-bold text-brand-blue">{p.titulo}</h3>
@@ -268,7 +268,7 @@ const documentos = [
             <p class="mt-1.5 text-white/70">Nuestro equipo de admisiones te orienta en todo el proceso.</p>
           </div>
           <div class="flex flex-col gap-3">
-            <a href="https://wa.me/16462582275" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand-gold px-6 py-3.5 text-sm font-bold text-brand-blue transition-all hover:brightness-105">
+            <a href="https://wa.me/526462582275" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand-gold px-6 py-3.5 text-sm font-bold text-brand-blue transition-all hover:brightness-105">
               <Icon name="lucide:message-circle" class="h-4 w-4" />
               Escríbenos por WhatsApp
             </a>
@@ -353,7 +353,7 @@ const documentos = [
 
           <div class="mt-6 overflow-hidden rounded-3xl ring-1 ring-slate-100">
             <iframe
-              title="Ubicación de Colegio Manabí"
+              title="Ubicación de Colegio Manabi"
               src="https://www.google.com/maps?q=Paseo%20de%20las%20Ballenas%20S%2FN%2C%20Vista%20Hermosa%2C%2022785%20Ensenada%2C%20B.C.&output=embed"
               class="h-72 w-full border-0"
               loading="lazy"

@@ -1,15 +1,47 @@
 @import "tailwindcss";
 
 /* Brand manual: azul #233d79 · amarillo #daa302 · verde azulado #0c677c.
-   ponytail: Nexa/Avenir are paid; using Poppins/Nunito Sans (geometric sans,
-   per the manual's fallback rule). Swap in licensed fonts if the school buys them. */
+   Body: Avenir (self-hosted). Titles: Poppins (Google Fonts). */
+
+/* ponytail: ttf, no woff2 toolchain locally; fine for modern browsers. */
+@font-face {
+  font-family: "Avenir";
+  src: url("/fonts/avenir-light.ttf") format("truetype");
+  font-weight: 300;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("/fonts/avenir-book.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("/fonts/avenir-regular.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("/fonts/avenir-heavy.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("/fonts/avenir-black.ttf") format("truetype");
+  font-weight: 800;
+  font-display: swap;
+}
+
 @theme {
   --color-brand-blue: #233d79;
   --color-brand-gold: #daa302;
   --color-brand-teal: #0c677c;
 
   --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Nunito Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Avenir", ui-sans-serif, system-ui, sans-serif;
 }
 
 html {

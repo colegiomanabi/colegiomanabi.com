@@ -35,7 +35,7 @@ export const POST: APIRoute = async ({ request }) => {
   // ponytail: onboarding@resend.dev works without a verified domain (testing),
   // but it can ONLY deliver to your own Resend account email.
   // Verify colegiomanabi.com in Resend, then set CONTACT_FROM=no-reply@colegiomanabi.com to send anywhere.
-  const from = process.env.CONTACT_FROM ?? import.meta.env.CONTACT_FROM ?? "Colegio Manabí <onboarding@resend.dev>";
+  const from = process.env.CONTACT_FROM ?? import.meta.env.CONTACT_FROM ?? "Colegio Manabi <onboarding@resend.dev>";
 
   if (!apiKey) {
     console.error("RESEND_API_KEY no configurada");

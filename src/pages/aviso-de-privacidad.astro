@@ -1,0 +1,106 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const actualizacion = "1 de julio de 2026";
+
+// Secciones del aviso de privacidad integral (LFPDPPP). Editar aquí el contenido legal.
+const secciones = [
+  {
+    titulo: "1. Identidad y domicilio del responsable",
+    parrafos: [
+      "Aislynn Valdez Sierra, titular de la marca «Colegio Manabi» (en adelante, «el Colegio» o «el Responsable»), es responsable del tratamiento y protección de sus datos personales conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), su Reglamento y demás normativa aplicable.",
+      "Para efectos del presente aviso, señala como domicilio: Paseo de las Ballenas S/N, Col. Vista Hermosa, C.P. 22785, Ensenada, Baja California, México.",
+    ],
+  },
+  {
+    titulo: "2. Datos personales que recabamos",
+    parrafos: [
+      "A través del formulario de contacto de este sitio web recabamos únicamente los siguientes datos personales, proporcionados de manera libre y voluntaria por usted:",
+    ],
+    lista: [
+      "Nombre completo",
+      "Correo electrónico",
+      "Número de teléfono (opcional)",
+      "Nivel educativo de interés (opcional)",
+      "El contenido del mensaje que usted decida enviarnos",
+    ],
+    cierre: "No recabamos datos personales sensibles a través de este sitio web.",
+  },
+  {
+    titulo: "3. Finalidades del tratamiento",
+    parrafos: ["Sus datos personales serán utilizados para las siguientes finalidades primarias, necesarias para atender su solicitud:"],
+    lista: [
+      "Responder sus consultas, solicitudes de información y mensajes.",
+      "Proporcionarle información sobre nuestra oferta educativa y el proceso de admisión.",
+      "Agendar y dar seguimiento a visitas al Colegio.",
+    ],
+    cierre:
+      "No trataremos sus datos para finalidades secundarias (por ejemplo, envío de comunicaciones promocionales) sin su consentimiento previo.",
+  },
+  {
+    titulo: "4. Transferencias de datos",
+    parrafos: [
+      "El Colegio no transfiere sus datos personales a terceros para finalidades distintas a las descritas en este aviso, ni con fines comerciales.",
+      "Para operar este sitio y atender su mensaje, sus datos son tratados por proveedores tecnológicos que actúan como encargados por cuenta del Responsable, sin facultad para usarlos con fines propios: Vercel Inc. (alojamiento del sitio web) y Resend (Plus Five Five, Inc.) (envío del correo electrónico generado por el formulario). Estos proveedores pueden almacenar o procesar los datos en servidores ubicados fuera de México, principalmente en los Estados Unidos de América. Estas remisiones no constituyen transferencias que requieran su consentimiento conforme a la LFPDPPP.",
+    ],
+  },
+  {
+    titulo: "5. Medios para ejercer los derechos ARCO",
+    parrafos: [
+      "Usted tiene derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las condiciones de su uso (Acceso); a solicitar la corrección de su información en caso de estar desactualizada, ser inexacta o incompleta (Rectificación); a que la eliminemos de nuestros registros cuando considere que no está siendo utilizada conforme a la normativa (Cancelación); así como a oponerse al uso de sus datos para fines específicos (Oposición).",
+      "Para ejercer cualquiera de estos derechos, envíe su solicitud al correo privacidad@colegiomanabi.com, indicando su nombre, un medio para contactarle y la descripción clara del derecho que desea ejercer. Daremos respuesta en los plazos que establece la LFPDPPP.",
+    ],
+  },
+  {
+    titulo: "6. Revocación del consentimiento",
+    parrafos: [
+      "En cualquier momento puede revocar el consentimiento que nos ha otorgado para el tratamiento de sus datos personales, así como limitar su uso o divulgación, enviando su solicitud al correo privacidad@colegiomanabi.com. Es posible que, por obligaciones legales, conservemos cierta información aun después de su solicitud.",
+    ],
+  },
+  {
+    titulo: "7. Uso de cookies",
+    parrafos: [
+      "Este sitio web no utiliza cookies ni tecnologías de rastreo para recopilar datos personales con fines publicitarios o de perfilamiento.",
+    ],
+  },
+  {
+    titulo: "8. Cambios al aviso de privacidad",
+    parrafos: [
+      "El presente aviso de privacidad puede sufrir modificaciones derivadas de cambios legales o de nuestras propias necesidades. Cualquier actualización estará disponible en esta misma página, por lo que le recomendamos revisarla periódicamente.",
+    ],
+  },
+];
+---
+
+<Layout title="Aviso de Privacidad — Colegio Manabi" description="Aviso de privacidad de Colegio Manabi conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.">
+  <section class="bg-slate-50 pt-44 pb-20 lg:pt-52 lg:pb-28">
+    <div class="mx-auto max-w-3xl px-5 lg:px-8">
+      <a href="/#inicio" class="text-sm font-semibold text-brand-teal transition-colors hover:text-brand-blue">← Volver al inicio</a>
+
+      <h1 class="mt-6 font-display text-3xl font-extrabold text-brand-blue lg:text-4xl">Aviso de Privacidad</h1>
+      <p class="mt-3 text-sm text-slate-500">Última actualización: {actualizacion}</p>
+
+      <div class="mt-10 space-y-10">
+        {secciones.map((s) => (
+          <div>
+            <h2 class="font-display text-xl font-bold text-brand-blue">{s.titulo}</h2>
+            {s.parrafos.map((p) => (
+              <p class="mt-3 leading-relaxed text-slate-600">{p}</p>
+            ))}
+            {s.lista && (
+              <ul class="mt-4 space-y-2">
+                {s.lista.map((item) => (
+                  <li class="flex items-start gap-3 text-slate-600">
+                    <span class="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-brand-gold"></span>
+                    <span class="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {s.cierre && <p class="mt-4 leading-relaxed text-slate-600">{s.cierre}</p>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
