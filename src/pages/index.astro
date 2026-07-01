@@ -89,6 +89,37 @@ const documentos = [
         </a>
       </div>
     </div>
+
+    <!-- Promo strip pinned to the bottom of the hero -->
+    <a id="promo-strip" href="#contacto" class="group absolute inset-x-0 bottom-0 z-10 block bg-brand-gold text-brand-blue transition-colors hover:bg-brand-gold/90">
+      <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-3 gap-y-1 px-5 py-3 text-center lg:px-8">
+        <span class="inline-flex items-center gap-2 font-display text-sm font-extrabold uppercase tracking-wide sm:text-base">
+          <Icon name="lucide:party-popper" class="h-5 w-5" />
+          Inscripción gratis por apertura
+        </span>
+        <span class="hidden h-6 w-px bg-brand-blue/30 sm:block" aria-hidden="true"></span>
+        <span id="promo-countdown" class="font-display text-base font-extrabold tabular-nums text-brand-blue sm:text-lg">Cupo limitado</span>
+      </div>
+    </a>
+
+    <script>
+      // Promo ends Aug 1, 2026 00:00 Ensenada time (UTC-7 in summer).
+      const strip = document.getElementById("promo-strip");
+      const out = document.getElementById("promo-countdown");
+      const deadline = new Date("2026-08-01T00:00:00-07:00").getTime();
+      const p = (n: number) => String(n).padStart(2, "0");
+      function tick() {
+        const diff = deadline - Date.now();
+        if (diff <= 0) { strip?.remove(); return; }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        if (out) out.textContent = `Termina en ${d}d ${p(h)}h ${p(m)}m ${p(s)}s`;
+      }
+      tick();
+      setInterval(tick, 1000);
+    </script>
   </section>
 
   <!-- Nosotros -->
