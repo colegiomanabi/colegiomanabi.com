@@ -2,6 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import ContactForm from "../components/ContactForm.astro";
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import heroImg from "../assets/manabi-hero.webp";
+import usImg from "../assets/us.webp";
+import preschoolImg from "../assets/preschool.webp";
+import schoolImg from "../assets/school.webp";
 
 const pilares = [
   { icon: "lucide:star", titulo: "Liderazgo Personal", desc: "Desarrollamos en cada alumno la confianza y la visión para guiar con propósito." },
@@ -14,14 +19,14 @@ const niveles = [
   {
     nombre: "Preescolar",
     edad: "3 – 6 años",
-    img: "/preschool.webp",
+    img: preschoolImg,
     desc: "Despertando la curiosidad. Estimulamos el desarrollo a través del juego, la exploración y el descubrimiento.",
     puntos: ["Iniciación a la lectoescritura", "Inglés desde el primer día", "Desarrollo socioemocional", "Actividades motrices y deportivas"],
   },
   {
     nombre: "Primaria",
     edad: "6 – 12 años",
-    img: "/school.webp",
+    img: schoolImg,
     desc: "Un programa académico de alto nivel que combina excelencia, valores y el cuidado que tu hijo merece.",
     puntos: ["Ciencias, tecnología y matemáticas", "Programa de inglés", "Formación en valores y liderazgo", "Artes y expresión"],
   },
@@ -68,7 +73,7 @@ const documentos = [
 <Layout>
   <!-- Hero -->
   <section id="inicio" class="relative flex min-h-screen items-center overflow-hidden bg-brand-blue text-white">
-    <img src="/manabi-hero.webp" alt="Alumnos de Colegio Manabi" class="absolute inset-0 h-full w-full object-cover object-[75%_20%]" />
+    <Image src={heroImg} alt="Alumnos de Colegio Manabi" loading="eager" fetchpriority="high" class="absolute inset-0 h-full w-full object-cover object-[75%_20%]" />
     <div class="absolute inset-0 bg-gradient-to-r from-brand-blue from-30% via-brand-blue/78 via-58% to-transparent"></div>
 
     <div class="relative mx-auto mt-32 w-full max-w-7xl px-5 lg:px-8">
@@ -98,7 +103,7 @@ const documentos = [
         <div class="relative">
           <div class="absolute -left-4 -top-4 h-full w-full rounded-3xl border-2 border-brand-gold"></div>
           <div class="relative">
-            <img src="/us.webp" alt="Maestra leyendo un cuento a un grupo de alumnos de Colegio Manabi" class="aspect-square h-full w-full rounded-3xl object-cover shadow-2xl" />
+            <Image src={usImg} alt="Maestra leyendo un cuento a un grupo de alumnos de Colegio Manabi" loading="lazy" widths={[400, 800, 1200]} sizes="(min-width: 1024px) 600px, 100vw" class="aspect-square h-full w-full rounded-3xl object-cover shadow-2xl" />
             <div class="absolute -bottom-5 left-5 right-5 rounded-xl bg-brand-blue p-5 shadow-xl sm:-right-5 sm:left-8">
               <p class="font-display text-lg font-bold leading-snug text-white">«Formamos líderes con corazón, listos para la vida.»</p>
               <p class="mt-1 text-sm font-medium text-brand-gold">— Colegio Manabi</p>
@@ -145,7 +150,7 @@ const documentos = [
         {niveles.map((n, i) => (
           <div class="grid items-center gap-8 lg:grid-cols-2 lg:gap-16">
             <div class={`overflow-hidden rounded-3xl shadow-xl ${i % 2 ? "lg:order-2" : ""}`}>
-              <img src={n.img} alt={`Alumnos de ${n.nombre} en Colegio Manabi`} class="aspect-[4/3] h-full w-full object-cover" />
+              <Image src={n.img} alt={`Alumnos de ${n.nombre} en Colegio Manabi`} loading="lazy" widths={[400, 800, 1200]} sizes="(min-width: 1024px) 600px, 100vw" class="aspect-[4/3] h-full w-full object-cover" />
             </div>
 
             <div class={i % 2 ? "lg:order-1" : ""}>
@@ -173,7 +178,7 @@ const documentos = [
 
   <!-- Oferta Académica -->
   <section id="oferta" class="relative overflow-hidden bg-brand-blue py-20 text-white lg:py-28">
-    <img src="/logos/isotype-light.svg" alt="" aria-hidden="true" class="pointer-events-none absolute top-1/2 -left-40 hidden h-[56rem] w-auto -translate-y-1/2 opacity-[0.06] lg:block" />
+    <img src="/logos/isotype-light.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" class="pointer-events-none absolute top-1/2 -left-40 hidden h-[56rem] w-auto -translate-y-1/2 opacity-[0.06] lg:block" />
     <div class="relative mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-2 lg:gap-20 lg:px-8">
       <div class="lg:sticky lg:top-28 lg:self-start">
         <h2 class="font-display text-3xl font-extrabold leading-tight lg:text-4xl">Oferta Académica</h2>

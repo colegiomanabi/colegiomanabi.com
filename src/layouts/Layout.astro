@@ -55,7 +55,7 @@ const nav = [
 
       <nav id="site-nav" class="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 transition-all duration-300 lg:px-8">
         <a href="/#inicio" class="flex items-center" aria-label="Colegio Manabi — inicio">
-          <img id="site-logo" src="/logos/logo-manabi-light.svg" alt="Colegio Manabi" class="h-20 w-auto transition-all duration-300" />
+          <img id="site-logo" src="/logos/logo-manabi-light.svg" alt="Colegio Manabi" loading="eager" fetchpriority="high" class="h-20 w-auto transition-all duration-300" />
         </a>
 
         <div class="hidden items-center gap-7 lg:flex">
@@ -115,11 +115,11 @@ const nav = [
 
     <footer class="relative overflow-hidden bg-brand-blue text-white">
       <div class="h-1 w-full bg-brand-gold"></div>
-      <img src="/logos/isotype-light.svg" alt="" aria-hidden="true" class="pointer-events-none absolute -bottom-24 -right-16 hidden h-[26rem] w-auto opacity-[0.04] lg:block" />
+      <img src="/logos/isotype-light.svg" alt="" aria-hidden="true" loading="lazy" decoding="async" class="pointer-events-none absolute -bottom-24 -right-16 hidden h-[26rem] w-auto opacity-[0.04] lg:block" />
 
       <div class="relative mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:grid-cols-2 lg:grid-cols-5 lg:px-8">
         <div class="sm:col-span-2">
-          <img src="/logos/logo-manabi-light.svg" alt="Colegio Manabi" class="h-14 w-auto" />
+          <img src="/logos/logo-manabi-light.svg" alt="Colegio Manabi" loading="lazy" decoding="async" class="h-14 w-auto" />
           <p class="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
             Formamos niñas y niños con liderazgo, empatía y responsabilidad. Una educación integral para los líderes del mañana.
           </p>
