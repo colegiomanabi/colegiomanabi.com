@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { Icon } from "astro-icon/components";
+import Analytics from "@vercel/analytics/astro";
 
 const { title = "Colegio Manabi — Educación con Propósito", description = "Educación con propósito para niños que cambiarán el mundo. Formamos niñas y niños con liderazgo, empatía y responsabilidad en Ensenada, B.C." } = Astro.props;
 
@@ -216,5 +217,7 @@ const nav = [
       tick();
       setInterval(tick, 1000);
     </script>
+
+    <Analytics />
   </body>
 </html>
